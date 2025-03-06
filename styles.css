@@ -10,6 +10,8 @@ body {
     scroll-behavior: smooth;
     background: linear-gradient(to bottom, #ffecd2, #fcb69f);
 }
+
+/* Navbar Styles */
 .navbar {
     position: fixed;
     top: 0;
@@ -27,71 +29,138 @@ body {
     font-weight: bold;
     font-size: 18px;
 }
+
 .navbar ul {
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
     padding: 0;
-    margin: 0;
-    width: 100%;
-    align-items: center;
 }
 
-.navbar ul li {
-    width: 100%;
-    text-align: center;
+.navbar li {
+    margin: 20px 0;
+    transition: transform 0.3s;
 }
-.navbar ul li a {
-    text-decoration: none;
-    color: white;
-    padding: 12px 20px;
-    font-size: 18px;
-    font-weight: bold;
-    transition: transform 0.2s, background 0.3s;
-    border-radius: 10px;
-    display: block;
-}
-.navbar ul li a:hover, .navbar ul li a.active {
-    background: rgba(255, 255, 255, 0.3);
+
+.navbar li:hover {
     transform: scale(1.1);
 }
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: color 0.3s, border-bottom 0.3s;
+    padding: 5px;
+}
+
+.navbar a:hover {
+    color: #222;
+    border-bottom: 2px solid white;
+}
+
+.active {
+    color: yellow !important;
+    border-bottom: 2px solid yellow;
+}
+
+/* Menu Toggle Button */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+
+/* Responsive Navbar */
+@media screen and (max-width: 768px) {
+    .content {
+        margin-left: 0; /* Remove left margin for mobile */
+        padding: 10px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .navbar {
+        width: 100%;
+        height: auto;
+        padding: 10px 0;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        position: absolute;
+        top: 50px;
+        left: 0;
+        padding: 10px 0;
+        text-align: left;
+    }
+
+    .navbar ul.active {
+        display: flex;
+    }
+
+    .navbar li {
+        margin: 10px;
+    }
+    section {
+        padding: 50px 15px;
+        margin-bottom: 30px;
+    }
+}
+
+}
+
+/* Content Styles */
 .content {
-    margin-left: 220px;
-    padding: 0px 20px;
+    max-width: 90%;
     text-align: center;
-    flex: 1;
-    width: 80%;
+    padding: 20px;
+    margin-left: 220px;
 }
+
 section {
-    padding: 30px 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    padding: 80px 20px;
+    margin-bottom: 50px; /* Added spacing between sections */
+    width: 100%;
+    max-width: 900px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
+
+/* Interactive Button */
 .interactive-btn {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #ff7e5f;
+    font-size: 18px;
+    padding: 10px 15px;
+    cursor: pointer;
+    background: #ff7e5f;
     color: white;
     border: none;
-    cursor: pointer;
     border-radius: 5px;
     transition: background 0.3s;
 }
+
 .interactive-btn:hover {
-    background-color: #feb47b;
+    background: #feb47b;
 }
+
+/* Dynamic Color Box */
 .color-box {
     width: 100px;
     height: 100px;
     background-color: #ff7e5f;
     margin: 20px auto;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: background-color 0.3s;
 }
